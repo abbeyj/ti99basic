@@ -1,0 +1,32 @@
+APPVER = 5.0
+TARGETOS = WINNT
+NODEBUG = 1
+
+!include <win32.mak>
+
+!ifndef nounicode
+cvarsdll = $(cvarsdll) -DUNICODE -D_UNICODE
+!endif
+cflags = $(cflags) /wd4146 -Dinline=_inline -D_CRT_SECURE_NO_DEPRECATE=1 -D_CRT_NONSTDC_NO_DEPRECATE=1
+
+.SUFFIXES : .bin
+OUTDIR=.\bin\win32
+TARGET=$(OUTDIR)\tibasic.exe
+
+build: "$(OUTDIR)" "$(TARGET)"
+rebuild: clean build
+clean:
+	-erase /f /q "$(OUTDIR)\*.*"
+	-rmdir "$(OUTDIR)"
+
+.c{$(OUTDIR)}.obj:
+	$(cc) $(cdebug) $(cflags) $(cvarsdll) /Fo"$(OUTDIR)/" /Fd"$(OUTDIR)/" $<
+
+.bin.c:
+	perl bin2c.pl $? $@
+
+"$(OUTDIR)":
+	mkdir "$(OUTDIR)"
+
+"$(TARGET)": "$(OUTDIR)\tibasic.obj" "$(OUTDIR)\runtime_functions.obj" "$(OUTDIR)\rom.obj" "$(OUTDIR)\grom.obj"
+	$(link) $(ldebug) $(conlflags) -out:"$(TARGET)" $** $(conlibsdll)

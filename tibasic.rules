@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VisualStudioToolFile
+	Name="tibasic"
+	Version="8.00"
+	>
+	<Rules>
+		<CustomBuildRule
+			Name="bin2c"
+			DisplayName="bin2c"
+			CommandLine="perl bin2c.pl [inputs] $(InputName).c"
+			Outputs="$(InputName).c"
+			AdditionalDependencies="bin2c.pl"
+			FileExtensions="*.bin"
+			ExecutionDescription="Converting $(InputFileName) to $(InputName).c..."
+			>
+			<Properties>
+			</Properties>
+		</CustomBuildRule>
+	</Rules>
+</VisualStudioToolFile>

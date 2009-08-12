@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ti99basic - TI-99/4A BASIC as a scripting language</title>
+</head>
+<body bgcolor="#42EFF6" text="black">
+<h1>ti99basic - TI-99/4A BASIC as a scripting language</h1>
+
+<div>This is a version of 
+<a href="http://en.wikipedia.org/wiki/TI_BASIC_%28TI_99/4A%29">Texas Instruments' BASIC</a>
+as found in ROM on the
+<a href="http://en.wikipedia.org/wiki/Texas_Instruments_TI-99/4A">TI-99/4A</a>.
+Note that this is <b>not</b>
+<a href="http://en.wikipedia.org/wiki/TI_Extended_BASIC">TI Extended BASIC</a>.
+It is also not the same as the
+<a href="http://en.wikipedia.org/wiki/TI-BASIC_%28calculators%29">TI-BASIC</a>
+used in TI's line of calculators.
+You can use it in interactive mode or pass a BASIC file as a command
+line parameter.
+</div>
+<br />
+<div>This source does not emulate
+<a href="http://en.wikipedia.org/wiki/Texas_Instruments_TMS9900">TMS9900</a>
+code.  The function of the original
+TMS9900 code is handled by native code.  The Graphics Programming
+Language (GPL) code is still run in a virtual machine just as it was on
+the original hardware.</div>
+<br />
+<div><a href="http://sourceforge.net/projects/ti99basic/"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=273249&amp;type=8" alt="Get TI-99/4A BASIC at SourceForge.net. Fast, secure and Free Open Source software downloads" height="15" width="80"></a>
+</div>
+
+<h2>Download</h2>
+<div><ul>
+<li>2009-08-12 <a href="http://sourceforge.net/projects/ti99basic/">Version 1.0</a> (Win32 binary, OS X binary, source)</li>
+</ul>
+Windows users should also install
+<a href="http://www.microsoft.com/downloads/details.aspx?familyid=A5C84275-3B97-4AB7-A40D-3802B2AF5FC2&amp;displaylang=en">Microsoft
+Visual C++ 2008 SP1 Redistributable Package</a>.
+</div>
+
+<h2>Compatibility</h2>
+<div>It has been tested with
+<ul>
+<li>Mac OS X 10.4/10.5/10.6 i386/x86_64/ppc (GCC 3.3/4.2)</li>
+<li>Ubuntu Linux 9.04 (GCC 4.3)</li>
+<li>Windows XP (Visual Studio 2008)</li>
+</ul>
+Other CPUs, operating systems and compilers should work, too.
+</div>
+
+<h2>Compiling</h2>
+<div>To build from source you will need a copy of
+<a href="http://www.perl.org/">Perl</a>
+and the original TI-99/4A ROMs.  These files should have the following
+MD5 sums:
+<pre>6cc4bc2b6b3b0c33698e6a03759a4cab *rom.bin
+ed8ff714542ba850bdec686840a79217 *grom.bin
+</pre>
+Other versions of the files are unlikely to work.
+</div>
+
+<h2>Usage</h2>
+<div>The specifics of the dialect of BASIC used by the TI-99/4A are
+available in the original
+<a href="ftp://ftp.whtech.com/datasheets%20&amp;%20manuals/99-4A%20Computer/99-4A%20User%20Reference%20Guide.pdf">User's
+Reference Guide</a>.  The Cassette, Disk, and Sound devices are not
+currently emulated.  You can use tibasic in interactive mode by just running the binary
+without parameters, or you can specify an ASCII-encoded BASIC program
+on the command line.  You can also use tibasic as a UNIX scripting
+language by adding a hashbang line to your BASIC program and making it
+executable.
+</div>
+
+<pre>
+$ ls -l hello.bas
+-rwxr-xr-x 1 user user 43 2009-08-06 23:55 hello.bas
+$ cat hello.bas
+#!/usr/bin/tibasic
+10 PRINT "HELLO WORLD!"
+$ ./hello.bas
+HELLO WORLD!
+</pre>
+<br />
+<div>
+Also included are 3 sample programs in the 'samples' directory.  The
+first two are sample games provided in the original manual; these
+expect upper-case input at the prompts so it may be convenient to
+turn on Caps Lock when running them.
+</div>
+<br />
+<div>
+<table border="1" cellpadding="4">
+<tr><th>Filename</th><th>Description</th></tr>
+<tr><td><a href="samples/codebreaker.bas">codebreaker.bas</a></td>
+    <td>A clone of <a href="http://en.wikipedia.org/wiki/Mastermind_%28board_game%29">Mastermind</a></td></tr>
+<tr><td><a href="samples/secretnumber.bas">secretnumber.bas</a></td>
+    <td>Guess the secret number but with an unusual twist</td></tr>
+<tr><td><a href="samples/sieve.bas">sieve.bas</a></td>
+    <td>Prints out prime numbers from 1 to 120,000</td></tr>
+</table>
+</div>
+
+<h2>Source</h2>
+<div>The latest source code can be found in the
+<a href="http://sourceforge.net/projects/ti99basic/develop">repository</a>.
+</div>
+
+<h2>License</h2>
+<div>Feel free to use this project for any purpose, give credit if you like,
+and send back improvements to the authors, if you like, so that others can
+benefit from it. See source for license details.
+</div>
+
+<h2>Contact</h2>
+<div><a href="mailto:abbeyj&#64;gmail.com">James Abbatiello</a>,
+<a href="mailto:mist&#64;c64.org">Michael Steil</a>
+</div>
+
+<h2>See Also</h2>
+<div>If you liked this you may enjoy
+<a href="http://cbmbasic.sourceforge.net/">cbmbasic</a> - Commodore BASIC V2 as a scripting language
+</div>
+<br />
+<hr />
+<br />
+<div>$LastChangedDate$</div>
+<br />
+</body>
+</html>
+
